@@ -1,6 +1,6 @@
 {
   "name": "@tetrisiq/nodetest",
-  "version": "1.2.4",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tetrisiq/nodetest.git"

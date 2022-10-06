@@ -5,10 +5,6 @@ on:
     paths:
       - src/**
 jobs:
-  updateVersion:
-    runs-on: ubuntu-latest
-    steps:
-      -run: ./updateVersion.sh
   build:
     runs-on: ubuntu-latest
     steps:
@@ -18,6 +14,7 @@ jobs:
         with:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
+      -run: ./updateVersion.sh
       - run: npm ci
       - run: npm publish --access public
         env:

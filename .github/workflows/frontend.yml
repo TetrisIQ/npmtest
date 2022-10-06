@@ -14,7 +14,7 @@ jobs:
       - run: ls
       - run: pwd
       - run: find . | grep .sh
-      - run: ./updateVersion.sh
+      - run: ./.github/workflows/updateVersion.sh
       - run: npm ci
       - run: npm publish --access public
         env:

@@ -5,6 +5,14 @@ on:
     paths:
       - src/**
 jobs:
+  updateVersion:
+    runs-on: ubuntu-latest
+    steps:
+      -run: patch=$(npm version | grep '@tetrisiq/nodetest' | cut -d : -f2 | cut -d \' -f2 | cut -d . -f3)
+      -run: minor=$(npm version | grep '@tetrisiq/nodetest' | cut -d : -f2 | cut -d \' -f2 | cut -d . -f2)
+      -run: major=$(npm version | grep '@tetrisiq/nodetest' | cut -d : -f2 | cut -d \' -f2 | cut -d . -f1)
+      -run: newPatch=$(($patch+1))
+      -run: npm version $major.$minor.$newPatch 
   build:
     runs-on: ubuntu-latest
     steps:
